@@ -3,7 +3,7 @@ version: '3.7'
 services:
   database:
     image: postgres
-    container_name: database
+    container_name: database_ignite
     restart: always
     ports:
       - 5432:5432
@@ -20,7 +20,7 @@ services:
     ports:
       - 3333:3333
     volumes:
-      - .:/usr/src/app/rentx
+      - .:/usr/app/rentx
     network_mode: host
 
 volumes:

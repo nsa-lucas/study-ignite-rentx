@@ -52,7 +52,7 @@
 - [x] O usuário deve poder cadastrar mais de uma imagem para o - mesmo carro
 - [x] O usuário responsável pelo cadastro deve ser um usuário - administrador.
 
-# Alugel de carro
+# Aluguel de carro
 
 **RF**
 
@@ -80,7 +80,7 @@
 - [] Ao realizar a devolução, o usuário deverá ser liberado - para outro aluguel.
 - [] Ao realizar a devolução, deverá ser calculado o total do - aluguel.
 - [] Caso o horário de devolução seja superior ao horário - previsto de entrega, deverá ser cobrado multa - proporcional aos dias de atraso.
-- [] Caso haja multa, deverREADME.md
+- [] Caso haja multa, dever
 
 # Listagem de Alugueis para usuário
 
