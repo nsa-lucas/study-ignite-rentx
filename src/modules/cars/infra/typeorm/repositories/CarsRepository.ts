@@ -52,19 +52,19 @@ class CarsRepository implements ICarsRepository {
     name?: string,
   ): Promise<Car[]> {
     const carsQuery = this.repository
-      .createQueryBuilder('c')
+      .createQueryBuilder()
       .where('available = :available', { available: true });
 
     if (brand) {
-      carsQuery.andWhere('c.brand = :brand', { brand });
+      carsQuery.andWhere('brand = :brand', { brand });
     }
 
     if (category_id) {
-      carsQuery.andWhere('c.category_id = :category_id', { category_id });
+      carsQuery.andWhere('category_id = :category_id', { category_id });
     }
 
     if (name) {
-      carsQuery.andWhere('c.name = :name', { name });
+      carsQuery.andWhere('name = :name', { name });
     }
 
     const cars = await carsQuery.getMany();
@@ -78,14 +78,15 @@ class CarsRepository implements ICarsRepository {
     return car;
   }
 
-  async updateAvailable(id: string, available: boolean): Promise<void> {
-    console.log(available);
-    await this.repository
+  async updateAvailable(car_id: string, available: boolean): Promise<void> {
+    const result = await this.repository
       .createQueryBuilder()
-      .update(Car)
-      .set({ available: false })
-      .where('id = :id', { id })
+      .update()
+      .set({ available })
+      .where('id = :car_id', { car_id })
       .execute();
+
+    console.log(result);
   }
 }
 
