@@ -5,8 +5,5 @@ coverage
 .env
 !tmp/.gitkeep
 dist
-ormconfig.json
 package-lock.json
-avatar
-image_cars
 ReadmeGIT.md
