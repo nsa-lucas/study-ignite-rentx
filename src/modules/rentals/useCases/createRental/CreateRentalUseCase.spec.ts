@@ -62,13 +62,11 @@ describe('Create Rental', () => {
         expected_return_date: dayAdd24Hours,
       });
 
-      const rental = await createRentalUseCase.execute({
+      await createRentalUseCase.execute({
         car_id: 'test',
         user_id: '321',
         expected_return_date: dayAdd24Hours,
       });
-
-      console.log(rental);
     }).rejects.toBeInstanceOf(AppError);
   });
 

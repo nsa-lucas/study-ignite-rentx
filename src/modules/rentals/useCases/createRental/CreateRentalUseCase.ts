@@ -34,8 +34,6 @@ class CreateRentalUseCase {
       car_id,
     );
 
-    console.log(carUnavailable);
-
     if (carUnavailable) {
       throw new AppError('Car is unavailable');
     }

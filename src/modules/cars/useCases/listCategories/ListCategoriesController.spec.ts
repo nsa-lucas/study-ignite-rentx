@@ -18,7 +18,7 @@ describe('List Categories', () => {
 
     await connection.query(
       `INSERT INTO USERS(id, name, email, password, "isadmin", created_at, driver_license)
-     values('${id}', 'admin', 'admin3@rentx.com.br', '${password}', true, 'now()', 'D')`,
+     values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'D')`,
     );
   });
 
@@ -29,7 +29,7 @@ describe('List Categories', () => {
 
   it('Should be able to list all categories', async () => {
     const responseToken = await request(app).post('/sessions').send({
-      email: 'admin3@rentx.com.br',
+      email: 'admin@rentx.com.br',
       password: 'admin',
     });
 
