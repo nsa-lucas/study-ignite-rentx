@@ -9,6 +9,7 @@ interface IRentalsRepository {
     user_id,
     expected_return_date,
   }: ICreateRentalDTO): Promise<Rental>;
+  findById(id: string): Promise<Rental>;
 }
 
 export { IRentalsRepository };
