@@ -17,8 +17,8 @@ describe('List Categories', () => {
     const password = await hash('admin', 8);
 
     await connection.query(
-      `INSERT INTO USERS(id, name, email, password, "isadmin", created_at, driver_license)
-     values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'D')`,
+      `INSERT INTO USERS(id, name, email, password, isadmin, created_at, driver_license)
+     values('${id}', 'admin', 'admin@rentx.com.br', '${password}', 'true', 'now()', 'D')`,
     );
   });
 
@@ -28,19 +28,21 @@ describe('List Categories', () => {
   });
 
   it('Should be able to list all categories', async () => {
-    const responseToken = await request(app).post('/sessions').send({
-      email: 'admin@rentx.com.br',
-      password: 'admin',
-    });
+    const responseToken = await request(app)
+      .post('/sessions')
+      .send({ email: 'admin@rentx.com.br', password: 'admin' });
 
     const { token } = responseToken.body.token;
 
-    const response = await request(app)
+    await request(app)
       .post('/categories')
-      .send({ name: 'Category SuperTest', description: 'Category SuperTest' })
-      .set({ Authorization: `${token}` });
+      .send({
+        name: 'Category SuperTest',
+        description: 'Category Supertest',
+      })
+      .set({ Authorization: `Bearer ${token}` });
 
-    console.log(response.body);
+    const response = await request(app).get('/categories');
 
     expect(response.status).toBe(200);
     expect(response.body.length).toBe(1);

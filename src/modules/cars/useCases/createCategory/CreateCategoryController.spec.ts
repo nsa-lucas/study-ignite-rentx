@@ -17,8 +17,8 @@ describe('Create Category Controller', () => {
     const password = await hash('admin', 8);
 
     await connection.query(
-      `INSERT INTO USERS(id, name, email, password, "isadmin", created_at, driver_license)
-     values('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'D')
+      `INSERT INTO USERS(id, name, email, password, isadmin, created_at, driver_license)
+     values('${id}', 'admin', 'admin@rentx.com.br', '${password}', 'true', 'now()', 'D')
     `,
     );
   });
