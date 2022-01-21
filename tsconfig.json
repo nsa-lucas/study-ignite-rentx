@@ -4,16 +4,17 @@
     "module": "commonjs",
     "rootDir": "./",
     "baseUrl": "./src",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
     "paths": {
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
-      "@utils/*": ["utils/*"],
-      "@middlewares/*": ["middlewares/*"]
+      "@errors/*": ["errors/*"],
+      "@utils/*": ["utils/*"]
     },
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true

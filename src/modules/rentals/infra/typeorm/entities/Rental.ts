@@ -9,7 +9,8 @@ import {
 } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Car } from '@modules/cars/infra/typeorm/entities/Car';
+// Using '@modules' error - cannot find module
+import { Car } from '../../../../cars/infra/typeorm/entities/Car';
 
 @Entity('rentals')
 class Rental {
